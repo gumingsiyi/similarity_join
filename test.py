@@ -1,5 +1,2 @@
-a = ('sss', 1)
-b = ('sss', 2)
-
-c = a + b
-print(c)
+for i in range(10, 10):
+    print(1)
