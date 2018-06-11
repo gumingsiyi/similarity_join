@@ -2,7 +2,11 @@ from pyspark import SparkContext
 
 
 sc = SparkContext("local","Simple App")
-textfile = sc.textFile("hdfs://118.25.191.190:9000/similarity/random1.dat")
+textfile = sc.textFile("random2.dat")
 
-counts = textfile.flatMap(lambda line: line.split("\n")).map(lambda word: (word, 1)).reduceByKey(lambda a, b: a + b)  
-counts.saveAsTextFile("output")
+counts = textfile.flatMap(lambda line: line.split(" ")).map(lambda word: (word, [{len(word): 5}])).reduceByKey(lambda a, b: a+b)
+print(type(counts))
+counts.reduceByKey(lambda a, b: a + b)
+print(counts.collect())
+
+#counts.saveAsTextFile("output")
