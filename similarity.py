@@ -4,7 +4,7 @@ from pyspark import SparkContext
 sc = SparkContext("local","Simple App")
 # 转换成invert list
 inverted_list = []
-f = open("input.dat", "r")
+f = open("random.dat", "r")
 # 记录行数
 cnt = 0
 for line in f:
